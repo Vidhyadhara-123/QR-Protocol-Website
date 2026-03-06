@@ -385,6 +385,14 @@ hr { border: none; border-top: 1px solid var(--accent); width: 100px; margin-bot
     text-align: center;
 }
 
+.download-note {
+    font-size: 0.7rem;
+    color: #888;
+    margin-top: -0.5rem;
+    margin-bottom: 0.5rem;
+    font-style: italic;
+}
+
 .btn-android {
     background-color: transparent;
     border: 2px solid #3ddc84; /* Android Green */
@@ -402,6 +410,90 @@ hr { border: none; border-top: 1px solid var(--accent); width: 100px; margin-bot
     color: var(--accent);
     font-size: 0.7rem;
     letter-spacing: 5px;
+}
+
+/* Comms Terminal Section */
+.comms-section {
+    padding: 5rem 10%;
+    background: var(--bg);
+}
+
+.terminal-box {
+    background: #000;
+    border: 1px solid var(--accent);
+    max-width: 800px;
+    margin: 0 auto;
+    box-shadow: var(--glow);
+}
+
+.terminal-header {
+    background: var(--accent);
+    color: #000;
+    padding: 5px 15px;
+    font-family: 'Consolas', monospace;
+    font-weight: bold;
+    font-size: 0.8rem;
+}
+
+.terminal-body {
+    padding: 2rem;
+    font-family: 'Consolas', monospace;
+}
+
+.input-line {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid rgba(0, 240, 255, 0.1);
+}
+
+.prompt {
+    color: var(--accent);
+    margin-right: 1rem;
+    font-weight: bold;
+}
+
+.input-line input, .input-line textarea {
+    background: transparent;
+    border: none;
+    color: var(--fg);
+    width: 100%;
+    padding: 5px;
+    outline: none;
+    font-family: 'Consolas', monospace;
+}
+
+.textarea-line {
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.textarea-line textarea {
+    height: 100px;
+    margin-top: 10px;
+    resize: none;
+}
+
+.terminal-btn {
+    background: transparent;
+    border: 1px solid var(--fg);
+    color: var(--fg);
+    padding: 10px 20px;
+    cursor: pointer;
+    font-family: 'Consolas', monospace;
+    transition: all 0.3s;
+}
+
+.terminal-btn:hover {
+    background: var(--fg);
+    color: #000;
+    box-shadow: var(--glow);
+}
+
+.terminal-feedback {
+    margin-top: 1.5rem;
+    font-size: 0.8rem;
+    color: #00ff00;
 }
 
 /* Developer Section */

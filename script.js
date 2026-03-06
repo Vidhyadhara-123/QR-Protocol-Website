@@ -29,6 +29,22 @@ function addLog() {
 // Add logs every 2 seconds
 setInterval(addLog, 2000);
 
+// Comms Terminal Logic
+const commsForm = document.getElementById('comms-form');
+const feedback = document.getElementById('terminal-feedback');
+
+if (commsForm) {
+    commsForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        feedback.innerHTML = "> Establishing uplink...<br>> Encrypting data stream...<br>> Transmitting...";
+        
+        setTimeout(() => {
+            feedback.innerHTML = "> TRANSMISSION SUCCESSFUL.<br>> PROJECT ARCHITECT WILL REVIEW DATA SOON.";
+            commsForm.reset();
+        }, 2000);
+    });
+}
+
 // Smooth scroll for nav links
 document.querySelectorAll('nav a').forEach(anchor => {
     anchor.addEventListener('click', function(e) {

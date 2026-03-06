@@ -113,11 +113,40 @@
                 </div>
                 <div class="download-buttons">
                     <a href="Universal_QR_Protocol.exe" class="btn btn-large" download>DOWNLOAD FOR WINDOWS</a>
+                    <p class="download-note">* Note: If Windows SmartScreen appears, click "More Info" -> "Run Anyway". The app is safe but unsigned.</p>
                     <a href="Universal_QR_Protocol.apk" class="btn btn-large btn-android" download>DOWNLOAD FOR ANDROID</a>
                 </div>
                 <p class="warning">// STARK INDUSTRIES RESTRICTED ACCESS //</p>
             </div>
         </section>
+        <section id="contact" class="comms-section">
+            <div class="section-header">
+                <h2>Secure Communication</h2>
+                <hr>
+            </div>
+            <div class="terminal-box">
+                <div class="terminal-header">COMMS_LINK // ENCRYPTED_CHANNEL</div>
+                <div class="terminal-body">
+                    <form id="comms-form">
+                        <div class="input-line">
+                            <span class="prompt">USER_ID:</span>
+                            <input type="text" id="sender-name" placeholder="Enter Name..." required>
+                        </div>
+                        <div class="input-line">
+                            <span class="prompt">RET_PATH:</span>
+                            <input type="email" id="sender-email" placeholder="Enter Email..." required>
+                        </div>
+                        <div class="input-line textarea-line">
+                            <span class="prompt">MESSAGE:</span>
+                            <textarea id="sender-msg" placeholder="Transmitting data stream..." required></textarea>
+                        </div>
+                        <button type="submit" class="terminal-btn">INITIATE_UPLINK</button>
+                    </form>
+                    <div id="terminal-feedback" class="terminal-feedback"></div>
+                </div>
+            </div>
+        </section>
+
         <section id="developer" class="dev-section">
             <div class="section-header">
                 <h2>System Architect</h2>
