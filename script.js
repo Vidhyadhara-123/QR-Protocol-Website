@@ -34,25 +34,37 @@ const webInput = document.getElementById('web-input');
 const qrContainer = document.getElementById('qrcode-canvas');
 const btnDownload = document.getElementById('download-web-qr');
 const btnClearWeb = document.getElementById('clear-web-input');
+const webFg = document.getElementById('web-fg');
+const webBg = document.getElementById('web-bg');
+const webEc = document.getElementById('web-ec');
 
-// Initialize QR Code
-const qrcode = new QRCode(qrContainer, {
-    text: "https://vidhyadhara-123.github.io/QR-Protocol-Website/",
-    width: 256,
-    height: 256,
-    colorDark: "#000000",
-    colorLight: "#ffffff",
-    correctLevel: QRCode.CorrectLevel.H
-});
+let qrcode = null;
 
-// Real-time update
-webInput.addEventListener('input', function() {
-    const text = webInput.value.trim();
-    if (text) {
-        qrcode.clear();
-        qrcode.makeCode(text);
-    }
-});
+function updateWebQR() {
+    const text = webInput.value.trim() || "https://vidhyadhara-123.github.io/QR-Protocol-Website/";
+    
+    // Clear previous
+    qrContainer.innerHTML = '';
+    
+    // Create new with current settings
+    qrcode = new QRCode(qrContainer, {
+        text: text,
+        width: 256,
+        height: 256,
+        colorDark: webFg.value,
+        colorLight: webBg.value,
+        correctLevel: QRCode.CorrectLevel[webEc.value]
+    });
+}
+
+// Initial build
+updateWebQR();
+
+// Listeners for all controls
+webInput.addEventListener('input', updateWebQR);
+webFg.addEventListener('input', updateWebQR);
+webBg.addEventListener('input', updateWebQR);
+webEc.addEventListener('change', updateWebQR);
 
 // Download Function
 btnDownload.addEventListener('click', function() {
@@ -62,15 +74,16 @@ btnDownload.addEventListener('click', function() {
         link.download = 'jarvis_qr_artifact.png';
         link.href = img.src;
         link.click();
-    } else {
-        alert("PROTOCOL ERROR: Artifact not detected.");
     }
 });
 
 // Clear Function
 btnClearWeb.addEventListener('click', function() {
     webInput.value = '';
-    qrcode.makeCode("https://vidhyadhara-123.github.io/QR-Protocol-Website/");
+    webFg.value = '#000000';
+    webBg.value = '#ffffff';
+    webEc.value = 'H';
+    updateWebQR();
 });
 
 // Comms Terminal Logic

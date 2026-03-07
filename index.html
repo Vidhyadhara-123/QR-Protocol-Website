@@ -78,6 +78,27 @@
                 <div class="web-gen-controls">
                     <p class="gen-label">INPUT_STREAM_ONLINE:</p>
                     <textarea id="web-input" placeholder="Type here to generate instant QR..."></textarea>
+                    
+                    <div class="web-pro-options">
+                        <div class="opt-row">
+                            <label>FOREGROUND:</label>
+                            <input type="color" id="web-fg" value="#000000">
+                        </div>
+                        <div class="opt-row">
+                            <label>BACKGROUND:</label>
+                            <input type="color" id="web-bg" value="#ffffff">
+                        </div>
+                        <div class="opt-row">
+                            <label>INTEGRITY:</label>
+                            <select id="web-ec">
+                                <option value="L">LOW (L)</option>
+                                <option value="M">MED (M)</option>
+                                <option value="Q">HIGH (Q)</option>
+                                <option value="H" selected>ULTRA (H)</option>
+                            </select>
+                        </div>
+                    </div>
+
                     <div class="gen-actions">
                         <button id="download-web-qr" class="terminal-btn">SAVE_ARTIFACT</button>
                         <button id="clear-web-input" class="terminal-btn">CLEAR_BUFFER</button>
