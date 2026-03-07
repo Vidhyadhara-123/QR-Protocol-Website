@@ -29,6 +29,50 @@ function addLog() {
 // Add logs every 2 seconds
 setInterval(addLog, 2000);
 
+// Web QR Generator Logic
+const webInput = document.getElementById('web-input');
+const qrContainer = document.getElementById('qrcode-canvas');
+const btnDownload = document.getElementById('download-web-qr');
+const btnClearWeb = document.getElementById('clear-web-input');
+
+// Initialize QR Code
+const qrcode = new QRCode(qrContainer, {
+    text: "https://vidhyadhara-123.github.io/QR-Protocol-Website/",
+    width: 256,
+    height: 256,
+    colorDark: "#000000",
+    colorLight: "#ffffff",
+    correctLevel: QRCode.CorrectLevel.H
+});
+
+// Real-time update
+webInput.addEventListener('input', function() {
+    const text = webInput.value.trim();
+    if (text) {
+        qrcode.clear();
+        qrcode.makeCode(text);
+    }
+});
+
+// Download Function
+btnDownload.addEventListener('click', function() {
+    const img = qrContainer.querySelector('img');
+    if (img) {
+        const link = document.createElement('a');
+        link.download = 'jarvis_qr_artifact.png';
+        link.href = img.src;
+        link.click();
+    } else {
+        alert("PROTOCOL ERROR: Artifact not detected.");
+    }
+});
+
+// Clear Function
+btnClearWeb.addEventListener('click', function() {
+    webInput.value = '';
+    qrcode.makeCode("https://vidhyadhara-123.github.io/QR-Protocol-Website/");
+});
+
 // Comms Terminal Logic
 const commsForm = document.getElementById('comms-form');
 const feedback = document.getElementById('terminal-feedback');

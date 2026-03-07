@@ -68,6 +68,28 @@
             </div>
         </section>
 
+        <!-- NEW: LIVE WEB PROTOCOL (Run in Website) -->
+        <section id="web-generator" class="web-gen-section">
+            <div class="section-header">
+                <h2>Live Web Protocol</h2>
+                <hr>
+            </div>
+            <div class="web-gen-container">
+                <div class="web-gen-controls">
+                    <p class="gen-label">INPUT_STREAM_ONLINE:</p>
+                    <textarea id="web-input" placeholder="Type here to generate instant QR..."></textarea>
+                    <div class="gen-actions">
+                        <button id="download-web-qr" class="terminal-btn">SAVE_ARTIFACT</button>
+                        <button id="clear-web-input" class="terminal-btn">CLEAR_BUFFER</button>
+                    </div>
+                </div>
+                <div class="web-gen-preview">
+                    <div id="qrcode-canvas"></div>
+                    <p class="preview-status">STARK_HUD // REAL_TIME_FABRICATION</p>
+                </div>
+            </div>
+        </section>
+
         <!-- NEW: SOCIAL SHARING -->
         <section class="social-share">
             <span>SHARE PROTOCOL:</span>
@@ -176,6 +198,7 @@
         <p>&copy; 2026 Stark Industries QR Protocol. All systems nominal.</p>
     </footer>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
