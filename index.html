@@ -68,45 +68,70 @@
             </div>
         </section>
 
-        <!-- NEW: LIVE WEB PROTOCOL (Run in Website) -->
+        <!-- REDESIGNED: INTELLIGENT WEB PROTOCOL -->
         <section id="web-generator" class="web-gen-section">
             <div class="section-header">
-                <h2>Live Web Protocol</h2>
+                <h2>Intelligent Fabrication Protocol</h2>
                 <hr>
             </div>
-            <div class="web-gen-container">
-                <div class="web-gen-controls">
-                    <p class="gen-label">INPUT_STREAM_ONLINE:</p>
-                    <textarea id="web-input" placeholder="Type here to generate instant QR..."></textarea>
-                    
-                    <div class="web-pro-options">
-                        <div class="opt-row">
-                            <label>FOREGROUND:</label>
-                            <input type="color" id="web-fg" value="#000000">
-                        </div>
-                        <div class="opt-row">
-                            <label>BACKGROUND:</label>
-                            <input type="color" id="web-bg" value="#ffffff">
-                        </div>
-                        <div class="opt-row">
-                            <label>INTEGRITY:</label>
-                            <select id="web-ec">
-                                <option value="L">LOW (L)</option>
-                                <option value="M">MED (M)</option>
-                                <option value="Q">HIGH (Q)</option>
-                                <option value="H" selected>ULTRA (H)</option>
-                            </select>
-                        </div>
-                    </div>
 
-                    <div class="gen-actions">
-                        <button id="download-web-qr" class="terminal-btn">SAVE_ARTIFACT</button>
-                        <button id="clear-web-input" class="terminal-btn">CLEAR_BUFFER</button>
+            <div class="fabrication-hud">
+                <!-- STEP 1: PROTOCOL TYPE -->
+                <div class="hud-panel phase-1">
+                    <div class="panel-header">PHASE_01 // SELECT_PROTOCOL</div>
+                    <div class="panel-content">
+                        <div class="protocol-grid">
+                            <button class="proto-btn active" data-type="url">URL</button>
+                            <button class="proto-btn" data-type="text">TEXT</button>
+                            <button class="proto-btn" data-type="wifi">WIFI</button>
+                            <button class="proto-btn" data-type="email">EMAIL</button>
+                            <button class="proto-btn" data-type="vcard">VCARD</button>
+                        </div>
                     </div>
                 </div>
-                <div class="web-gen-preview">
-                    <div id="qrcode-canvas"></div>
-                    <p class="preview-status">STARK_HUD // REAL_TIME_FABRICATION</p>
+
+                <!-- STEP 2: CONFIGURATION -->
+                <div class="hud-panel phase-2">
+                    <div class="panel-header">PHASE_02 // CONFIGURE_DATA</div>
+                    <div class="panel-content">
+                        <div id="input-container">
+                            <!-- Dynamic inputs will be injected here -->
+                            <textarea id="web-input" placeholder="Initiating data stream..."></textarea>
+                        </div>
+                        
+                        <div class="web-pro-options">
+                            <div class="opt-group">
+                                <label>FG_COLOR</label>
+                                <input type="color" id="web-fg" value="#00f0ff">
+                            </div>
+                            <div class="opt-group">
+                                <label>BG_COLOR</label>
+                                <input type="color" id="web-bg" value="#050510">
+                            </div>
+                            <div class="opt-group">
+                                <label>INTEGRITY</label>
+                                <select id="web-ec">
+                                    <option value="L">LOW</option>
+                                    <option value="M">MED</option>
+                                    <option value="Q">HIGH</option>
+                                    <option value="H" selected>ULTRA</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- STEP 3: PREVIEW & EXPORT -->
+                <div class="hud-panel phase-3">
+                    <div class="panel-header">PHASE_03 // ARTIFACT_PREVIEW</div>
+                    <div class="panel-content preview-area">
+                        <div id="qrcode-canvas"></div>
+                        <div class="gen-actions">
+                            <button id="download-web-qr" class="terminal-btn">EXPORT_ARTIFACT</button>
+                            <button id="clear-web-input" class="terminal-btn">RESET_SYSTEM</button>
+                        </div>
+                        <p class="preview-status">STARK_SYSTEMS // ENCRYPTED_OUTPUT</p>
+                    </div>
                 </div>
             </div>
         </section>
